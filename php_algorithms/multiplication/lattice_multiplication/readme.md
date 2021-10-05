@@ -20,11 +20,13 @@ The input consists of a pair of arrays containing only digits and representing t
 The output is similarly consiting of a single digit array.
 
 ## Algorithm
-FIBONACCIMULTIPLY(X[0...m-1],Y[0...n-1]):
-    hold <- 0
-    for k <- 0 to n+m-1:
-        for all i and j such as i+j=k:
-            hold <- hold + X[i]*Y[j]
-        Z[k] <- hold % 10
-        hold <- hold/10
-    return Z[0...m+n-1]
+```
+   FIBONACCIMULTIPLY(X[0...m-1],Y[0...n-1]):
+        hold <- 0
+        for k <- 0 to n+m-1:
+            for all i and j such as i+j=k:
+                hold <- hold + X[i]*Y[j]
+            Z[k] <- hold % 10
+            hold <- hold/10
+       return Z[0...m+n-1]
+```
