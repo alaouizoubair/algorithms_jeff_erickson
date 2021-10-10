@@ -6,9 +6,26 @@ if(count($argv)<2){
     throw new Exception("The number of arguments is insufficiant");
 }
 
+//Launch timer with microtime
 
-print_r(mergesort(array_map(fn($a)=> (int)$a,array_slice($argv,1,count($argv)-1)) ));
+$time_pre = microtime(true);
+$sorted_array = mergesort(array_map(fn($a)=> (int)$a,array_slice($argv,1,count($argv)-1)) );
+$time_post = microtime(true);
 
+print_result_time($sorted_array,$time_post - $time_pre);
+
+
+//Printing result in well formated manner
+function print_result_time($sorted_array, $time){
+    echo("#################################\n");
+    echo("The result is :\n");
+    print_r($sorted_array);
+    echo("Execution time in micro seconds : ".
+        number_format($time,7,',',' ')." \n");
+    echo("#################################\n");
+}
+
+//Mergesort main function
 function mergesort($A){
     if(count($A)>1){
         if(count($A) %2 == 0){
@@ -19,12 +36,13 @@ function mergesort($A){
         
         $A1 = mergesort(array_slice($A,0,$m));
         $A2 = mergesort(array_slice($A,$m));
-        $A = merge_bis($A1,$A2);
+        $A = merge($A1,$A2);
     }
     return $A;
 }
 
-function merge_bis($A1,$A2){
+//Merge function post dividing
+function merge($A1,$A2){
     $i = 0;
     $j = 0;
     $k = 0;
