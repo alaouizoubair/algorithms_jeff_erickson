@@ -1,4 +1,4 @@
-# Lattice Multiplication Algorithm
+# Peasant Multiplication Algorithm
 
 ## Preface
 This series of algorithms is based on and inspired by Jeff Erickson's book: Algorithms. All my thanks go to him and his team.
